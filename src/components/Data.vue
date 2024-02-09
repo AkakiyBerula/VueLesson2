@@ -51,9 +51,6 @@
                 <button class="btn btn-primary" @click="filterFriendsList('Jack')">Відфільтрувати друзів</button>
             </div>
         </div>
-        <div>
-            <p>{{ combinedData }}</p>
-        </div>
     </div>
     
 </template>
@@ -140,6 +137,11 @@ export default {
         sortGoodGrade() {
             return this.filterGoodGrade.slice().sort((a, b) => b.grade - a.grade);
         }
+    },
+    watch: {
+        firstName (newValue, oldValue) {
+            console.log(newValue, oldValue)
+        },
     }
 }
 

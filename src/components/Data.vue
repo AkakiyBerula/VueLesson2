@@ -24,6 +24,7 @@
         </div>
         <div class="container text-center">
             <h1 class="display-4">Other Data</h1> 
+            <button class="btn btn-danger" @click="changeFriend">Змінити друга</button>
             <p class="lead">{{ friend.name }}</p> 
             <div>
                 <p class="lead">Ввести ім'я друга</p>
@@ -87,6 +88,16 @@ export default {
         },
         filterFriendsList(name) {
             this.friend.friendsList = this.friend.friendsList.filter(friend => friend === name);
+        },
+        changeFriend() {
+            let newFriend = {
+                name: 'Otto',
+                age: 42,
+                height: 185,
+                weight: 82,
+                friendsList: ['Ferdinand', 'Astrid', 'Cody']
+            }
+            this.friend = newFriend
         }
 
     },

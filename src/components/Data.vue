@@ -25,7 +25,8 @@
             <p class="lead">{{ height }} cm</p>
             <p class="lead">Вага: {{ weight }} kg</p>
             <p class="lead">Індекс маси тіла: {{ countBodyMassIndex(height, weight) }}</p>
-            <p class="lead">{{ filterMaxGrade }}</p>
+            <p class="lead">Максимальні бали табелю: {{ filterMaxGrade }}</p>
+            <p class="lead">Високі бали табелю (посортовані): {{ sortGoodGrade }}</p>
         </div>
         <HttpRequest />
         <div class="container text-center">
@@ -132,6 +133,12 @@ export default {
     computed: {
         filterMaxGrade() {
             return this.reportCard.filter(item => item.grade === 5);
+        },
+        filterGoodGrade() {
+            return this.reportCard.filter(item => item.grade > 3);
+        },
+        sortGoodGrade() {
+            return this.filterGoodGrade.slice().sort((a, b) => b.grade - a.grade);
         }
     }
 }

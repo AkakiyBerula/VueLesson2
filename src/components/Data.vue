@@ -6,12 +6,12 @@
             <p class="lead">{{ lastName }}</p>
             <div>
                 <p class="lead">Ввести ім'я</p>
-                <input type="text" :value="firstName" @input="firstName = $event.target.value">
+                <input type="text" v-model="firstName" @input="changeFirstName">
                 
             </div>
             <div>
                 <p class="lead">Ввести прізвище</p>
-                <input type="text" :value="lastName" @input="lastName = $event.target.value">
+                <input type="text" v-model="lastName" @input="changeLastName">
             </div>
             <p class="lead">{{ age }}</p>
             <div>
@@ -76,6 +76,13 @@ export default {
         decrementFriendAge () {
             this.age--
         },
+        changeFirstName(newFirstName) {
+            this.firstName = newLastName;
+        },
+        changeLastName(newLastName) {
+            this.lastName = newLastName;
+        }
+
     },
 }
 

@@ -1,6 +1,6 @@
 <template>
     
-
+<!-- тут нычого не повинно бути -->
 </template>
 
 <script>

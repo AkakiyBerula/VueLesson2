@@ -27,6 +27,7 @@
             <p class="lead">Індекс маси тіла: {{ countBodyMassIndex(height, weight) }}</p>
             <p class="lead">{{ filterMaxGrade }}</p>
         </div>
+        <HttpRequest />
         <div class="container text-center">
             <h1 class="display-4">Other Data</h1> 
             <button class="btn btn-danger" @click="changeFriend">Змінити друга</button>
@@ -49,17 +50,22 @@
                 <button class="btn btn-primary" @click="filterFriendsList('Jack')">Відфільтрувати друзів</button>
             </div>
         </div>
+        <div>
+            <p>{{ combinedData }}</p>
+        </div>
     </div>
     
 </template>
 
 <script>
 import ErrorMessage from './ErrorMessage.vue'
+import HttpRequest from './HttpRequest.vue'
 
 export default {
     name: 'Data',
     components: {
-        ErrorMessage
+        ErrorMessage,
+        HttpRequest
     },
     data() {
         return {
@@ -84,7 +90,7 @@ export default {
                 {subject: "Physical education", grade: 3},
                 {subject: "Art", grade: 3},
                 {subject: "Music", grade: 5} 
-            ]
+            ],
         }
     },
     methods: {

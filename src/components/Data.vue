@@ -6,13 +6,16 @@
             <p class="lead">{{ lastName }}</p>
             <div>
                 <p class="lead">Ввести ім'я</p>
-                <input type="text" v-model="firstName" @input="changeFirstName">
+                <input type="text" v-model="firstName" @input="changeFirstName($event.target.value)">
                 
             </div>
             <div>
                 <p class="lead">Ввести прізвище</p>
-                <input type="text" v-model="lastName" @input="changeLastName">
+                <input type="text" v-model="lastName" @input="changeLastName($event.target.value)">
             </div>
+            <error-message 
+                :firstName="firstName"
+                :lastName="lastName" />
             <p class="lead">{{ age }}</p>
             <div>
                 <p>Змінити вік користувача</p>
@@ -48,9 +51,13 @@
 </template>
 
 <script>
+import ErrorMessage from './ErrorMessage.vue'
 
 export default {
     name: 'Data',
+    components: {
+        ErrorMessage
+    },
     data() {
         return {
             firstName: "John",
@@ -64,7 +71,8 @@ export default {
                 height: 168,
                 weight: 70,
                 friendsList: ['Jill', 'Jane', 'Jack', 'Joseph']
-            }
+            },
+            errorMessage: ''
         }
     },
     methods: {

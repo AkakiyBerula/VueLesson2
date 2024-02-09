@@ -38,6 +38,9 @@
             <p class="lead">{{ friend.height }} cm</p>
             <p class="lead">{{ friend.weight }} kg</p>
             <p class="lead">{{ friend.friendsList }}</p>
+            <div>
+                <button class="btn btn-primary" @click="filterFriendsList('Jack')">Відфільтрувати друзів</button>
+            </div>
         </div>
     </div>
     
@@ -59,7 +62,7 @@ export default {
                 age: 30,
                 height: 168,
                 weight: 70,
-                friendsList: ["Jane", "Jack", "Jill", "Joseph"]
+                friendsList: ['Jill', 'Jane', 'Jack', 'Joseph']
             }
         }
     },
@@ -74,13 +77,16 @@ export default {
             this.friend.age++
         },
         decrementFriendAge () {
-            this.age--
+            this.friend.age--
         },
         changeFirstName(newFirstName) {
-            this.firstName = newLastName;
+            this.firstName = newFirstName;
         },
         changeLastName(newLastName) {
             this.lastName = newLastName;
+        },
+        filterFriendsList(name) {
+            this.friend.friendsList = this.friend.friendsList.filter(friend => friend === name);
         }
 
     },

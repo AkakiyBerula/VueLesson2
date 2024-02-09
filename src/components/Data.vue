@@ -28,6 +28,7 @@
             <p class="lead">Максимальні бали табелю: {{ filterMaxGrade }}</p>
             <p class="lead">Високі бали табелю (посортовані): {{ sortGoodGrade }}</p>
             <button class="btn btn-primary" @click="getReportCard">Відсортувати предмети табелю</button>
+            <button class="btn btn-primary" @click="addNewSubject">Додати новий предмет</button>
         </div>
         <HttpRequest />
         <SendAPI :data="friend"/>
@@ -132,6 +133,9 @@ export default {
         },
         getReportCard() {
             this.reportCard = this.sortReportCard
+        },
+        addNewSubject() {
+            this.reportCard.push({subject: "Theatre", grade: 4})
         }
         
     },
@@ -158,6 +162,12 @@ export default {
         },
         reportCard (newValue, oldValue) {
             console.log(newValue, oldValue);
+        },
+        friend: {
+            handler(newValue, oldValue) {
+                console.log(newValue, oldValue);
+            },
+            deep: true
         }
     }
 }

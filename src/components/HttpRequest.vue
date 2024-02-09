@@ -28,7 +28,7 @@ export default {
                 ];
                 this.combinedDataLoading = false;
             }, 2000);
-        }
+        },
     },
     created() {
         this.fetchData();
@@ -37,8 +37,7 @@ export default {
         combinedData() {
             return this.reactiveData.concat(this.httpData);
         }
-    }
-    
+    },
 }
 
 </script>

@@ -29,6 +29,7 @@
             <p class="lead">Високі бали табелю (посортовані): {{ sortGoodGrade }}</p>
         </div>
         <HttpRequest />
+        <SendAPI :data="friend"/>
         <div class="container text-center">
             <h1 class="display-4">Other Data</h1> 
             <button class="btn btn-danger" @click="changeFriend">Змінити друга</button>
@@ -58,12 +59,14 @@
 <script>
 import ErrorMessage from './ErrorMessage.vue'
 import HttpRequest from './HttpRequest.vue'
+import SendAPI from './SendAPI.vue'
 
 export default {
     name: 'Data',
     components: {
         ErrorMessage,
-        HttpRequest
+        HttpRequest,
+        SendAPI
     },
     data() {
         return {
@@ -125,7 +128,8 @@ export default {
         },
         countBodyMassIndex(height, weight) {
             return weight / ((height / 100) ** 2)
-        }
+        },
+        
     },
     computed: {
         filterMaxGrade() {

@@ -167,7 +167,8 @@ export default {
             handler(newValue, oldValue) {
                 console.log(newValue, oldValue);
             },
-            deep: true
+            deep: true,
+            immediate: true,
         }
     }
 }

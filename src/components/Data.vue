@@ -25,6 +25,7 @@
             <p class="lead">{{ height }} cm</p>
             <p class="lead">Вага: {{ weight }} kg</p>
             <p class="lead">Індекс маси тіла: {{ countBodyMassIndex(height, weight) }}</p>
+            <p class="lead">{{ filterMaxGrade }}</p>
         </div>
         <div class="container text-center">
             <h1 class="display-4">Other Data</h1> 
@@ -74,7 +75,16 @@ export default {
                 weight: 70,
                 friendsList: ['Jill', 'Jane', 'Jack', 'Joseph']
             },
-            errorMessage: ''
+            reportCard: [
+                {subject: "Math", grade: 4},
+                {subject: "English", grade: 5},
+                {subject: "Science", grade: 4},
+                {subject: "History", grade: 4},
+                {subject: "Geography", grade: 5},
+                {subject: "Physical education", grade: 3},
+                {subject: "Art", grade: 3},
+                {subject: "Music", grade: 5} 
+            ]
         }
     },
     methods: {
@@ -112,8 +122,12 @@ export default {
         countBodyMassIndex(height, weight) {
             return weight / ((height / 100) ** 2)
         }
-
     },
+    computed: {
+        filterMaxGrade() {
+            return this.reportCard.filter(item => item.grade === 5);
+        }
+    }
 }
 
 </script>

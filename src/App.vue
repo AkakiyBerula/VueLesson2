@@ -1,23 +1,28 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
+<script>
+import Data from './components/Data.vue'
+
+export default {
+  name: 'App',
+  components: {
+    Data
+  }
+}
 </script>
 
 <template>
   <div>
     <header>
-      <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
       <div class="wrapper">
-        <HelloWorld msg="You did it!" />
+        <Data />
       </div>
     </header>
 
-    <main>
-    
-    </main>
   </div>
-  
+    
 </template>
+
+
+
 
 <style scoped>
 header {

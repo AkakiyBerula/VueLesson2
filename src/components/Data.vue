@@ -142,6 +142,9 @@ export default {
         firstName (newValue, oldValue) {
             console.log(newValue, oldValue)
         },
+        'friend.age' (newValue, oldValue) {
+            console.log(newValue, oldValue)
+        }
     }
 }
 

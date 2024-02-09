@@ -27,6 +27,7 @@
             <p class="lead">Індекс маси тіла: {{ countBodyMassIndex(height, weight) }}</p>
             <p class="lead">Максимальні бали табелю: {{ filterMaxGrade }}</p>
             <p class="lead">Високі бали табелю (посортовані): {{ sortGoodGrade }}</p>
+            <button class="btn btn-primary" @click="getReportCard">Відсортувати предмети табелю</button>
         </div>
         <HttpRequest />
         <SendAPI :data="friend"/>
@@ -129,6 +130,9 @@ export default {
         countBodyMassIndex(height, weight) {
             return weight / ((height / 100) ** 2)
         },
+        getReportCard() {
+            this.reportCard = this.sortReportCard
+        }
         
     },
     computed: {
@@ -140,6 +144,9 @@ export default {
         },
         sortGoodGrade() {
             return this.filterGoodGrade.slice().sort((a, b) => b.grade - a.grade);
+        },
+        sortReportCard() {
+            return this.reportCard.slice().sort((a, b) => b.grade - a.grade);
         }
     },
     watch: {
@@ -148,6 +155,9 @@ export default {
         },
         'friend.age' (newValue, oldValue) {
             console.log(newValue, oldValue)
+        },
+        reportCard (newValue, oldValue) {
+            console.log(newValue, oldValue);
         }
     }
 }

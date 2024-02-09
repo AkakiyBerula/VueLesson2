@@ -1,6 +1,5 @@
 <template>
     
-<!-- тут нычого не повинно бути -->
 </template>
 
 <script>
@@ -22,6 +21,7 @@ export default {
             
         }
     },
+    
     watch: {
         data(newValue, oldValue) {
             console.log(newValue, oldValue)

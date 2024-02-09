@@ -23,7 +23,8 @@
                 <button class="btn btn-danger" @click="decrementAge">-</button>
             </div>
             <p class="lead">{{ height }} cm</p>
-            <p class="lead">{{ weight }} kg</p>
+            <p class="lead">Вага: {{ weight }} kg</p>
+            <p class="lead">Індекс маси тіла: {{ countBodyMassIndex(height, weight) }}</p>
         </div>
         <div class="container text-center">
             <h1 class="display-4">Other Data</h1> 
@@ -33,15 +34,16 @@
                 <p class="lead">Ввести ім'я друга</p>
                 <input type="text" :value="friend.name" @input="friend.name = $event.target.value">
             </div>
-            <p class="lead">{{ friend.age }}</p>
+            <p class="lead">Вік: {{ friend.age }}</p>
             <div>
                 <p>Змінити вік друга користувача</p>
                 <button class="btn btn-success" @click="incrementFriendAge">+</button>
                 <button class="btn btn-danger" @click="decrementFriendAge">-</button>
             </div>
-            <p class="lead">{{ friend.height }} cm</p>
-            <p class="lead">{{ friend.weight }} kg</p>
-            <p class="lead">{{ friend.friendsList }}</p>
+            <p class="lead">Ріст: {{ friend.height }} cm</p>
+            <p class="lead">Вага: {{ friend.weight }} kg</p>
+            <p class="lead">Індекс маси тіла: {{ countBodyMassIndex(friend.height, friend.weight) }}</p>
+            <p class="lead">Друзі: {{ friend.friendsList }}</p>
             <div>
                 <button class="btn btn-primary" @click="filterFriendsList('Jack')">Відфільтрувати друзів</button>
             </div>
@@ -106,6 +108,9 @@ export default {
                 friendsList: ['Ferdinand', 'Astrid', 'Cody']
             }
             this.friend = newFriend
+        },
+        countBodyMassIndex(height, weight) {
+            return weight / ((height / 100) ** 2)
         }
 
     },
